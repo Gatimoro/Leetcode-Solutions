@@ -1,0 +1,10 @@
+import math
+class Solution(object):    
+    def isPalindrome(self, x):
+        i=1
+        x=str(x)
+        for c in x[0:math.ceil(len(x)/2)]:
+            if(x[len(x)-i])!=c:
+                return False
+            i+=1
+        return True
