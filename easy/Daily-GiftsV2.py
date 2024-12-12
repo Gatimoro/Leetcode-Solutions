@@ -1,11 +1,14 @@
 import heapq
+import math
 class Solution:
     def pickGifts(self, gifts: List[int], k: int) -> int:
-        l=[x*-1 for x in gifts]
+        tot=sum(gifts)
+        l=[-x for x in gifts]
         heapq.heapify(l)
-        while k>0:
+        for rob in range(k):
             a=-heapq.heappop(l)
-            a=-isqrt(a)
-            heapq.heappush(l,a)
-            k-=1
-        return -1*sum(l)
+            tot-=a
+            a=math.floor(math.sqrt(a))
+            tot+=a
+            heapq.heappush(l,-a)
+        return tot
