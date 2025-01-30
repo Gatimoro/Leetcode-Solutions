@@ -1,12 +1,17 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def decompressRLElist(self, nums: List[int]) -> List[int]:
-        wigga=True
-        ans=[]
-        for num in nums:
-            if wigga:
-                times = num
-            else:
-                ans+=times*[num]
-            wigga=not wigga
-        return ans
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dumbo = ListNode(next=head)
+        dumbus= ListNode(next=head)
+        while head:
+            dumbus=dumbus.next
+            while dumbus.next and dumbus.next.val==head.val:
+                dumbus=dumbus.next
+            head.next=dumbus.next
+            head=head.next
+        return dumbo.next
 """remove duplicates from linked list""
