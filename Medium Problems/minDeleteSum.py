@@ -33,3 +33,4 @@ class Solution:
                 else: 
                     dp[i][j] = min(dp[i-1][j] + ord(s2[i]),dp[i][j-1] + ord(s1[j]))
         return dp[-1][-1]
+"""Given two strings s1 and s2, return the lowest ASCII sum of deleted characters to make two strings equal."""
