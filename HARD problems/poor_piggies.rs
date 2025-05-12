@@ -1,0 +1,22 @@
+impl Solution {
+    pub fn poor_pigs(buckets: i32, minutes_to_die: i32, minutes_to_test: i32) -> i32 {
+        let iterations_allowed = minutes_to_test / minutes_to_die + 1;
+        let mut piggies = 0;
+        loop{
+            if iterations_allowed.pow(piggies) >= buckets{
+                return piggies as i32;
+            }
+            piggies += 1;
+        }
+    }
+}
+// There are buckets buckets of liquid, where exactly one of the buckets is poisonous. To figure out which one is poisonous, you feed some number of (poor) pigs the liquid to see whether they will die or not. Unfortunately, you only have minutesToTest minutes to determine which bucket is poisonous.
+
+// You can feed the pigs according to these steps:
+
+// Choose some live pigs to feed.
+// For each pig, choose which buckets to feed it. The pig will consume all the chosen buckets simultaneously and will take no time. Each pig can feed from any number of buckets, and each bucket can be fed from by any number of pigs.
+// Wait for minutesToDie minutes. You may not feed any other pigs during this time.
+// After minutesToDie minutes have passed, any pigs that have been fed the poisonous bucket will die, and all others will survive.
+// Repeat this process until you run out of time.
+// Given buckets, minutesToDie, and minutesToTest, return the minimum number of pigs needed to figure out which bucket is poisonous within the allotted time
