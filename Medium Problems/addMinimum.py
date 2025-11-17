@@ -20,3 +20,22 @@ class Solution:
         elif word[-1] == 'b':
             return ads + 1
         return ads
+
+class Solution:
+    def addMinimum(self, word: str) -> int:
+        ads = 0
+        i = 0
+        while i < len(word):
+            for correct in "abc":
+                if i < len(word) and word[i] == correct:
+                    i += 1
+                else:
+                    ads += 1
+        return ads
+
+class Solution:
+    def addMinimum(self, word: str) -> int:
+        i = ads = 0
+        while i < len(word):
+            for correct in "abc": i, ads = (i + 1, ads) if i < len(word) and word[i] == correct else (i, ads + 1)
+        return ads
